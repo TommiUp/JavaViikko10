@@ -55,9 +55,7 @@
         android:id="@+id/degreeRadioGroup"
         android:layout_width="221dp"
         android:layout_height="170dp"
-        android:layout_marginStart="82dp"
-        android:layout_marginEnd="81dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTutkinto">
 
@@ -128,13 +126,22 @@
         android:id="@+id/txtTutkinto"
         android:layout_width="85dp"
         android:layout_height="21dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="219dp"
         android:text="Tutkinto"
         android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <TextView
+        android:id="@+id/txtKoulutus"
+        android:layout_width="85dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="4dp"
+        android:text="Koulutus"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toEndOf="@+id/txtTutkinto"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
     <TextView
@@ -147,5 +154,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/degreeRadioGroup" />
+
+    <CheckBox
+        android:id="@+id/checkBoxKandi"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Kandidaatin tutkinto"
+        app:layout_constraintStart_toEndOf="@+id/degreeRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/txtKoulutus" />
+
+    <CheckBox
+        android:id="@+id/checkBoxDippa"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Diplomi-insinöörin tutkinto"
+        app:layout_constraintStart_toEndOf="@+id/degreeRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxKandi" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTohtori"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Tekniikan tohtorin tutkinto"
+        app:layout_constraintStart_toEndOf="@+id/degreeRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDippa" />
+
+    <CheckBox
+        android:id="@+id/checkBoxMaisteri"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Uimamaisteri"
+        app:layout_constraintStart_toEndOf="@+id/degreeRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTohtori" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

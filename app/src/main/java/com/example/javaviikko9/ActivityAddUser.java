@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,6 +17,11 @@ public class ActivityAddUser extends AppCompatActivity {
     private String addDegree;
     private RadioGroup rgImage;
     private int addImage;
+    private CheckBox checkKandi;
+    private CheckBox checkDippa;
+    private CheckBox checkTohtori;
+    private CheckBox checkMaisteri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,10 @@ public class ActivityAddUser extends AppCompatActivity {
         email = findViewById(R.id.emailText);
         rgDegree = findViewById(R.id.degreeRadioGroup);
         rgImage = findViewById(R.id.imageRadioGroup);
+        checkKandi = findViewById(R.id.checkBoxKandi);
+        checkDippa = findViewById(R.id.checkBoxDippa);
+        checkTohtori = findViewById(R.id.checkBoxTohtori);
+        checkMaisteri = findViewById(R.id.checkBoxMaisteri);
     }
     public void addUser(View view) {
         String addFirstName = firstName.getText().toString();
@@ -57,7 +67,29 @@ public class ActivityAddUser extends AppCompatActivity {
                 addImage = R.drawable.img;
                 break;
         }
-        UserStorage.getInstance().addUser(new User(addFirstName, addLastName, addEmail, addDegree, addImage));
+        String addKandi = "";
+        String addDippa = "";
+        String addTohtori = "";
+        String addMaisteri = "";
+        if (checkKandi.isChecked()){
+            addKandi = checkKandi.getText().toString();
+        }
+        if (checkDippa.isChecked()){
+            addDippa = checkDippa.getText().toString();
+        }
+        if (checkTohtori.isChecked()){
+            addTohtori = checkTohtori.getText().toString();
+        }
+        if (checkMaisteri.isChecked()){
+            addMaisteri = checkMaisteri.getText().toString();
+        }
+        User newUser = new User(addFirstName, addLastName, addEmail, addDegree, addImage);
+        UserStorage.getInstance().addUser(newUser);
+        newUser.setKandi(addKandi);
+        newUser.setDippa(addDippa);
+        newUser.setTohtori(addTohtori);
+        newUser.setMaisteri(addMaisteri);
+        UserStorage.getInstance().saveUsers(this);
         finish();
     }
 }
